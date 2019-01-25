@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=" Boot_css/bootstrap.css">
+    <script src="Boot_js/jquery.min.js"></script>
+    <script src="Boot_js/popper.min.js"></script>
+    <script src="Boot_js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/body.css"/>
+    <link rel="stylesheet" href="css/sigin.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/vue.js"></script>
+    <title>博客注册页</title>
+    <style>
+        .success{
+            color:#0aaeed;
+        }
+        .success_border{
+            border:1px solid #0aaeed !important;
+        }
+        .fild{
+            color:#ff0000;
+        }
+        .fild_border{
+            border:1px solid lightcoral !important;
+        }
+    </style>
+</head>
+<body>
+<div id="header" class="if_header positionrelative"></div>
+<div class="container position_relative" id="app" v-cloak>
+<div class="row  mb-lg-3">
+<div class="col-lg-12 pl-0 pr-0 mt-lg-1 ">
+<div  class=" w-50 bg-white border  m-auto w_xm_80 mt_xm_4 rounded-top w_sm_60">
+<p class="h5 h_xm_h7 text-left ml-lg-4 pt-lg-4 pt-sm-4 ml-sm-4"> 注册小马哥个人博客</p>
+<hr width="90%">
+<div class="form-group w-75 m-auto">
+    <div class="mt-lg-4 mb-lg-1 mt-sm-3 mb-sm-1">
+        <span class="text-danger">*</span>
+        <span :class="spanStyle" class="d-inline-block">{{text_email}}</span>
+    </div>
+    <input type="text" placeholder="请输入邮箱" v-model="Temail"
+           class="form-control bg_img_1 pl-lg-5 pl-sm-5 hover_colo_input"
+           id="email"
+           @blur="myBlur()" :class="spanStyle_border">
+    <div class="mt-lg-3 mb-lg-1 mt-sm-3 mb-sm-1">
+        <span class="text-danger ">*</span>
+        <span>{{vs}}</span>
+    </div>
+    <input type="text"  placeholder="请输入邮箱验证码"class="form-control bg_img_2 pl-lg-5 pl-sm-5 hover_colo_input" id="vs">
+    <div class="mt-lg-3 mb-lg-1 mt-sm-3 mb-sm-1">
+        <span class="text-danger" >*</span>
+        <span>{{pawd}}</span>
+    </div>
+    <input type="password" placeholder="请输入密码" class="form-control bg_img_3 pl-lg-5 pl-sm-5 hover_colo_input"id="upwd">
+    <div class="mt-lg-3 mb-lg-1 mt-sm-3 mb-sm-1">
+        <span class="text-danger">*</span>
+        <span id="title1">{{upwd}}</span>
+    </div>
+    <input type="password" placeholder="请确认一下密码" class="form-control bg_img_4 pl-lg-5 pl-sm-5 hover_colo_input">
+    <input type="button"value="验证码正在加载..." class="btn btn-info form-control mt-lg-4 mt-sm-3 hover_colo_input">
+    <input type="button" value="注册" class="btn btn-danger   form-control mt-lg-4 mt-sm-3 mb-sm-4 hover_colo_input" onclick="sigin()">
+    <div class=" ">已经拥有账户？ <a href="login.html">登录</a></div>
+    <div class="mt-lg-3 ">快速注册</div>
+    <div class="text-center">
+        <a href="javascript:;">
+            <img src="img/QQ_001.PNG" alt="QQ登录" title="QQ登录" class="mb-lg-2 img_hover mb-sm-4  "/>
+        </a>
+        <a href="javascript:;">
+            <img src="img/WEIBO.PNG" alt="微博登录" title="微博登录" class="ml-lg-4 mb-lg-3 img_hover mb-sm-4   "/>
+            </a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer_sigin" class="mt_lg_6"></div>
+  </body>
+<script>
+    $("#header").load("header.html");
+    $("#footer_sigin").load("footer.html");
+    </script>
+<script>
+function sigin(){
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4&&xhr.status==200){
+            var result=xhr.responseText;
+            if(result=="1"){
+                confirm("恭喜成为小马哥的粉丝,将跳转到登录页面！")
+                location.url("http://127.0.0.1:3000/login.html")
+            }else{
+                alert("为了更贴近小马哥，请正确输入您的信息")
+            }
+        }
+    }
+    xhr.open("post","/user/sigin_01",true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    formdata ="email="+email.value+"&upwd="+upwd.value+"&vs="+vs.value;
+    xhr.send(formdata);
+}
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            Temail:"",
+            text_email:"邮箱名",
+            vs:"邮箱验证码",
+            pawd:"新密码",
+            upwd:"确认密码",
+            spanStyle:"",
+            spanStyle_border:"",
+            input_border:""
+        },
+        methods:{
+            myBlur(){
+            if(/^([a-z0-9]+)@([a-z0-9]+)\.([a-z]+){2,6}$/.test(this.Temail)){
+                this.text_email="邮箱格式输入正确";
+                this.spanStyle="success";
+                this.spanStyle_border="success_border";
+            }else{
+                this.text_email="邮箱格式必须以字母或数字开头包含'@'和'.'符号";
+                this.spanStyle="fild";
+                this.spanStyle_border="fild_border"
+            }
+        }
+        }
+    })
+</script>
+</html>

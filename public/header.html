@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=" Boot_css/bootstrap.css">
+    <script src="Boot_js/jquery.min.js"></script>
+    <script src="Boot_js/popper.min.js"></script>
+    <script src="Boot_js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/body.css"/>
+    <title>博客头部</title>
+</head>
+
+<body>
+<script>
+    ($("[data-up=up]").click(function(){
+        $("[data-down=down]").toggle(1000)
+
+    }))
+</script>
+<div class="container-fluid  header_guodu">
+<div class="row w-100">
+    <div class="col ">
+        <div class="header_guodu"></div>
+    </div>
+</div>
+<div class="row " >
+<div class="col pl-0 pr-0 ">
+<div class="navbar navbar-expand-md bg-dark navbar-dark mb-3 mb-sm-1 mb_xm_1" >
+<!-- 不被折叠的导航选项 -->
+<a href="#" class="navbar-brand ml-lg-5 ml-sm-5 w-25 text-right">青出于蓝|青于蓝</a>
+<!-- 小屏幕下最右侧的按钮；上面应该有三条横线 -->
+<button class="navbar-toggler" data-toggle="collapse" data-target="#content" >
+    <span class="navbar-toggler-icon" data-up="up"></span>
+</button>
+<!-- 导航里面的菜单，小屏幕隐藏(垂直显示)，大屏幕下横向显示， -->
+<div class="collapse navbar-collapse overflow_hidden" id="content" data-down="down">
+<ul class="navbar-nav "id="head" >
+    <li class="nav-item ml-lg-4 ml-xm-0">
+        <a href="index.html" class="nav-link text-white hover_color  sm_font">网站首页</a>
+    </li>
+    <li class="nav-item ml-lg-4 ml-sm-0">
+        <a href="javascript:;" class="nav-link text-white hover_color sm_font ">实战心得<span class="text-danger">
+            <sup><i>Hot</i></sup></span>
+        </a>
+    </li>
+    <li class="nav-item ml-lg-4 ml-sm-0">
+        <a href="javascript:;" class="nav-link text-white hover_color sm_font ">web经验</a>
+    </li>
+    <li class="nav-item ml-lg-4 ml-sm-0">
+        <a href="javascript:;" class="nav-link text-white hover_color sm_font">博客日记</a>
+    </li>
+    <li class="nav-item ml-lg-4 ml-sm-0">
+        <a href="Own.html" class="nav-link text-white hover_color sm_font">Own</a>
+    </li>
+    <li class="nav-item ml-lg-4 ml-sm-0">
+        <a href="words.html" class="nav-link text-white hover_color sm_font">留言</a>
+    </li>
+    <li class="nav-item ml-lg-5">
+        <a href="login.html" class="nav-link text-white hover_color sm_font">登录</a>
+    </li>
+    <li class="nav-item ">
+        <a href="sigin.html" class="nav-link text-white hover_color sm_font">注册</a>
+    </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/header.js"></script>
+<!--
+//(function(){
+//var $navli=$("#head>li>a")
+//$navli.click(function () {
+//    var $navli=$(this);
+//    if($navli.hasClass("colorBlue"))
+//       $navli.addClass("colorBlue")
+//    else if(!$navli.hasClass("colorBlue"))
+//    {
+//        var $hascolorBlue=$("#head>li>a.colorBlue")
+//        if($hascolorBlue!=null)
+//        {$hascolorBlue.removeClass("colorBlue")}
+//        $navli.addClass("colorBlue")
+//    }
+//})
+//})()
+-->
+<!--<script>-->
+    <!--($("[data-up=up]").click(function(){-->
+       <!--$("[data-down=down]").css("height","0")-->
+    <!--}))-->
+<!--</script>-->
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=" Boot_css/bootstrap.css">
+    <script src="Boot_js/jquery.min.js"></script>
+    <script src="Boot_js/popper.min.js"></script>
+    <script src="Boot_js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/body.css"/>
+    <link rel="stylesheet" href="css/words.css"/>
+    <title>留言板</title>
+</head>
+<body onload="backinfo()">
+<div id="header" class="if_header positionrelative"></div>
+<div class="container bg_words mt-lg-3  p-0">
+    <div class="row">
+        <div class="col">
+            <ul class="nav justify-content-round 	bg-white mt-lg-4 ml-lg-2 mr-lg-2 box-shadow">
+                <li class="nav-item"><a href="#" class="nav-link"><img src="img/dw.png"title="定位"  /> </a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link text-dark pt-lg-3 h6 font-weight-bold">首页 </a></li>
+                <li class="nav-item"><a href="words.html" class="nav-link text-dark pt-lg-3 h6 font-weight-bold">留言</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row position-relative">
+        <div class="col-lg-11 text-center bg-white ml-lg-5    mt-lg-4 box-shadow">
+            <img src="img/messagewall.png" alt="" class="w-25"/>
+            <p class="h1 font-weight-bold text-dark">Message wall</p>
+            <p>本页面可留言、吐槽、提问。欢迎灌水，杜绝广告！</p>
+            <p><img src="img/nz.png" alt=""/><span class="times">2019年01月16号 周三21:27pm</span></p>
+            <hr/>
+            <p class="h2 text-muted" >沟通交流,拉近你我！</p>
+            <p class="text-info">
+            <i>-----------------------------------Speak one's mind freely-------------------------------------</i>
+            </p>
+            <p class="text-left border mb-lg-0" id="fu">
+                <img src="img/face01.png" alt="" class="ml-lg-5 p-lg-2 " data-toggle="hide" title="表情"/>
+                <img src="img/l01.png" alt="" class="ml-lg-3 p-lg-2" data-left="left" title="左对齐"/>
+                <img src="img/c01.png" class="ml-lg-3 p-lg-2" alt="" data-center="center" title="居中"/>
+                <img src="img/r01.png"  class="ml-lg-3 p-lg-2" alt="" data-right="right" title="右对齐"/>
+                <img src="img/i02.png" class="ml-lg-3 p-lg-2" alt="" title="斜体" data-right="i"/>
+                <span class="text-danger float-right pr-lg-3 h6 pt-lg-2" ><span data-text="txt">150</span><span>字</span></span>
+            </p>
+            <p><textarea name=""  id="words" cols="145" rows="7" class="border resiznone" placeholder="发表自己的心声..." data-text="text"></textarea></p>
+            <div class="text-left mb-lg-3"> <button class="btn btn-info bor der border-white" onclick="info()">提交留言</button></div>
+        </div>
+    </div>
+    <div class="position-relative">
+    <div   id="wordsinfo" class="words">
+        <!--<div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white">-->
+            <!--<img src="img/zj01.jpg" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>-->
+            <!--<span class="text-info pl-lg-2  border_bottoms ml-lg-2">情非得已</span><span class="times pl-lg-4"></span><br/>-->
+        <!--<p class="pl-lg-5 pb-lg-2 ml-lg-4">大神您好，我下载安装了pdfexpert，为啥老说我文件损坏应当移除到废纸娄呢？-->
+            <!--<button class="btn btn-outline-info btn-sm">回复</button>-->
+        <!--</p>-->
+        <!--</div>-->
+    </div>
+    <div class="topLeft" data-toggle="show">
+        <table id="tab" class=" border">
+            <tr class="">
+                <td><img src="img/face/0.gif"  title="微笑" alt=""></td>
+                <td><img src="img/face/1.gif"  title="呲牙" alt=""></td>
+                <td><img src="img/face/2.gif"  title="大笑" alt=""></td>
+                <td><img src="img/face/3.gif"  title="可爱" alt=""></td>
+                <td><img src="img/face/4.gif"  title="可怜" alt=""></td>
+                <td><img src="img/face/5.gif"  title="抠鼻" alt=""></td>
+                <td><img src="img/face/6.gif"  title="吃惊" alt=""></td>
+                <td><img src="img/face/7.gif"  title="害羞" alt=""></td>
+                <td><img src="img/face/8.gif"  title="挤眼" alt=""></td>
+                <td><img src="img/face/9.gif"  title="闭嘴" alt=""></td>
+                <td><img src="img/face/10.gif" title="鄙视"  alt=""></td>
+                <td><img src="img/face/11.gif" title="爱你"  alt=""></td>
+            </tr>
+            <tr>
+                <td><a href="#"><img src="img/face/12.gif" title="流泪"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/13.gif" title="偷笑"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/14.gif" title="亲亲"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/15.gif" title="生病"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/16.gif" title="太开心"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/17.gif" title="白眼"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/18.gif" title="左哼哼"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/19.gif" title="右哼哼"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/20.gif" title="嘘"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/21.gif" title="衰"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/22.gif" title="委屈"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/23.gif" title="吐"  alt=""></a></td>
+            </tr>
+            <tr>
+                <td><a href="#"><img src="img/face/24.gif" title="哈欠"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/25.gif" title="抱抱"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/26.gif" title="怒"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/27.gif" title="疑问"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/28.gif" title="馋嘴"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/29.gif" title="拜拜"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/30.gif" title="思考"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/31.gif" title="汗"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/32.gif" title="困"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/33.gif" title="睡"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/34.gif" title="钱"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/35.gif" title="失望"  alt=""></a></td>
+            </tr>
+            <tr>
+
+                <td><a href="#"><img src="img/face/36.gif" title="酷"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/37.gif" title="色"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/38.gif" title="哼"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/39.gif" title="鼓掌"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/44.gif" title="晕"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/41.gif" title="悲伤"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/42.gif" title="抓狂"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/43.gif" title="黑线"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/44.gif" title="阴险"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/45.gif" title="怒骂"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/46.gif" title="互粉"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/47.gif" title="心"  alt=""></a></td>
+            </tr>
+            <tr>
+
+                <td><a href="#"><img src="img/face/48.gif" title="伤心"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/49.gif" title="猪头"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/50.gif" title="熊猫"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/51.gif" title="兔子"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/52.gif" title="Ok"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/53.gif" title="Yes"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/54.gif" title="Good"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/55.gif" title="No"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/56.gif" title="赞"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/57.gif" title="勾引"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/58.gif" title="弱"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/59.gif" title="曹尼玛"  alt=""></a></td>
+            </tr>
+            <tr>
+
+                <td><a href="#"><img src="img/face/60.gif" title="神马"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/61.gif" title="囧"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/62.gif" title="浮云"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/63.gif" title="给力"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/64.gif" title="围观"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/65.gif" title="威武"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/66.gif" title="奥特曼"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/67.gif" title="礼物"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/68.gif" title="闹钟"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/69.gif" title="麦克风"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/70.gif" title="蜡烛"  alt=""></a></td>
+                <td><a href="#"><img src="img/face/71.gif"  title="蛋糕" alt=""/></a></td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    <br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/>
+
+</div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $("#header").load("header.html");
+</script>
+<script>
+    $(window).load(function(){
+     /* 设置表情的隐藏与显示 */
+        $("[data-toggle=hide]").click(function(){
+            $("[ data-toggle=show]").toggle(500)
+        })
+
+    /* 设置左中右对其的背景显示方式*/
+       //冒泡实现点击切换
+//        获取父元素,  为父元素绑定事件
+        $("#fu").on("click","img", function () {
+        //只允许父元素下的img触发事件；
+            var $img=$(this);
+            //console.log($img)
+            //凡是进入事件处理函数的一定都是title
+            if($img.hasClass("bg")){
+                $img.removeClass("bg")
+            }else{
+               var $imgs=$("img").hasClass("bg")//没有bg这个类返回false,一旦有这个bg类后返回的是true；
+                if($imgs){
+                    $("img").removeClass("bg")
+                }
+                $img.addClass("bg")
+            }
+        })
+
+        /* 设置左中右点击实现文本的走中有对其方式，及文字的倾斜方式*/
+        $("[data-left=left]").on("click", function () {
+            $("[data-text=text]").css("text-align","left")
+        })
+        $("[data-center=center]").on("click", function () {
+            $("[data-text=text]").css("text-align","center")
+        })
+        $("[data-right=right]").on("click", function () {
+            $("[data-text=text]").css("text-align","right")
+        })
+        $("[data-right=i]").on("click", function () {
+            var $i=$("[data-text=text]");
+            if($i.hasClass("italiced")){
+                $i.removeClass("italiced")
+            }else
+            $i.addClass("italiced")
+        });
+        /*为每一个表情使用冒泡事件设置hover，当鼠标经过时，表情放大1.1倍，当鼠标移开时回复原样*/
+        //console.log($("#tab tr td>a>img"))
+       $("#tab").on("mouseenter","img",function(){
+            var $Aimgs=$(this);
+            $Aimgs.css("transform","scale(1.3,1.3)")
+        })
+        $("#tab").on("mouseout","img",function(){
+            var $Aimgs=$(this);
+            $Aimgs.css("transform","scale(1,1)")
+        })
+    /* 设置日期与时间 */
+    function newtime(){
+    var time=new Date();
+    var week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+    var year=time.getFullYear();
+    var month=time.getMonth()+1;
+    var date=time.getDate();
+    var weeks=time.getDay();
+    var hours=time.getHours();
+    var minutes=time.getMinutes();
+    var seconds=time.getSeconds()
+    $(".times").html(`${year}年${month}月${date}日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${week[weeks]}&nbsp;&nbsp;&nbsp;&nbsp;${hours}时${minutes}分${seconds}秒`)
+    }
+    newtime()
+
+    <!--留言字数的控制-->
+    //        console.log($("[data-text=txt]").text())
+    var maxLength=150;
+    $("#words").keyup(function(){
+    var max=$(this).val().length;
+    $("[data-text=txt]").text(maxLength-max);
+    if(parseInt($("[data-text=txt]").text())<0){
+        $("[data-text=txt]").text('0');
+        var val=$(this).val().substring(0,151);
+        $(this).val(val);
+    }
+    })
+    })
+
+</script>
+<!--将留言信息发送给到数据库-->
+<script>
+
+function info(){
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4&&xhr.status==200){
+            var result=xhr.responseText;
+            console.log(result)
+        }
+    }
+    xhr.open("post","/user/user_info",true)
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    formdata ="words="+words.value;
+    if(words.value==""){
+        alert("留言贴近你我！！！")
+    }else{xhr.send(formdata)}
+
+}
+</script>
+<!--从数据库中拿回留言的信息，留言功能的基本实现过程-->
+<script>
+    function backinfo(){
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+    if(xhr.readyState==4&&xhr.status==200){
+        var result=xhr.responseText;
+//        console.log(result)
+        var json=JSON.parse(result)
+        var time=new Date();
+        var week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+        var year=time.getFullYear();
+        var month=time.getMonth()+1;
+        var date=time.getDate();
+        var weeks=time.getDay();
+        var hours=time.getHours();
+        var minutes=time.getMinutes();
+        var seconds=time.getSeconds()
+        timeids=`${year}年${month}月${date}日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${week[weeks]}&nbsp;&nbsp;&nbsp;&nbsp;${hours}时${minutes}分${seconds}秒`
+        var html="";
+        for(var text of json){
+            html+=`
+        <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white">
+            <img src="img/zj01.jpg" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>
+            <span class="text-info pl-lg-2  border_bottoms ml-lg-2">【情非得已】</span><span class="times pl-lg-4">${timeids}</span><br/>
+        <p class="pl-lg-5 pb-lg-2 ml-lg-4">${text.words}
+            <button class="btn btn-outline-info btn-sm">回复</button>
+        </p>
+        </div>
+   `
+        }
+     var div = document.getElementById("wordsinfo");
+        div.innerHTML=html
+    }
+}
+xhr.open("get","/user/backinfo",true);
+xhr.send(null)
+}
+</script>
+</html>

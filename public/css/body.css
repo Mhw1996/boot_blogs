@@ -1,0 +1,9 @@
+body{
+    background: #E9EAED;
+}
+*{
+    list-style: none;
+    text-decoration: none !important;
+    padding: opx !important;
+    margin: opx !important;
+}
