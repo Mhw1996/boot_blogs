@@ -57,18 +57,24 @@
     $("#footer_sigin").load("footer.html");
 </script>
 <script>
-    function login(){
-        var xhr=new XMLHttpRequest();
-        xhr.onreadystatechange=function(){
-            if(xhr.readyState==4&&xhr.status==200){
-                var result=xhr.responseText;
-                console.log(result)
-            }
+function login(){
+var xhr=new XMLHttpRequest();
+xhr.onreadystatechange=function(){
+    if(xhr.readyState==4&&xhr.status==200){
+        var result=xhr.responseText;
+        if(result=="1"){
+            alert("登录成功,并返回首页！！！")
+            // console.log(window.location.href)
+            window.location.href="http://127.0.0.1:3000/index.html?lid=1";
+        }else{
+            alert("请正确输入你的信息！！！")
         }
-        xhr.open("post","/user/login",true)
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        formdata ="email="+email.value+"&upwd="+upwd.value;
-        xhr.send(formdata)
+    }
+}
+xhr.open("post","/user/login",true)
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+formdata ="email="+email.value+"&upwd="+upwd.value;
+xhr.send(formdata)
     }
 </script>
 </html>

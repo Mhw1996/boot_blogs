@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/words.css"/>
     <title>留言板</title>
 </head>
-<body onload="backinfo()">
+<body>
 <div id="header" class="if_header positionrelative"></div>
 <div class="container bg_words mt-lg-3  p-0">
     <div class="row">
@@ -43,19 +43,23 @@
                 <img src="img/i02.png" class="ml-lg-3 p-lg-2" alt="" title="斜体" data-right="i"/>
                 <span class="text-danger float-right pr-lg-3 h6 pt-lg-2" ><span data-text="txt">150</span><span>字</span></span>
             </p>
-            <p><textarea name=""  id="words" cols="145" rows="7" class="border resiznone" placeholder="发表自己的心声..." data-text="text"></textarea></p>
+            <p><textarea name="" id="words" cols="145" rows="7" class="border resiznone w-100" placeholder="发表自己的心声..." data-text="text"></textarea></p>
             <div class="text-left mb-lg-3"> <button class="btn btn-info bor der border-white" onclick="info()">提交留言</button></div>
         </div>
     </div>
     <div class="position-relative">
     <div   id="wordsinfo" class="words">
-        <!--<div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white">-->
-            <!--<img src="img/zj01.jpg" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>-->
-            <!--<span class="text-info pl-lg-2  border_bottoms ml-lg-2">情非得已</span><span class="times pl-lg-4"></span><br/>-->
-        <!--<p class="pl-lg-5 pb-lg-2 ml-lg-4">大神您好，我下载安装了pdfexpert，为啥老说我文件损坏应当移除到废纸娄呢？-->
-            <!--<button class="btn btn-outline-info btn-sm">回复</button>-->
-        <!--</p>-->
-        <!--</div>-->
+                <!-- <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white">
+                    <img src="img/zj01.jpg" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>
+                    <span class="text-info pl-lg-2  border_bottoms ml-lg-2">情非得已</span><span class="times pl-lg-4"></span><br/>
+                <p class="pl-lg-5  ml-lg-4">大神您好，我下载安装了pdfexpert，为啥老说我文件损坏应当移除到废纸娄呢？
+                    <button class="btn btn-outline-info btn-sm">回复</button>
+                </p>
+                <div>
+                <p class="pb-lg-2"><span class="pl-lg-5 ml-lg-5  text-success h6">【站长回复】</span><span class=" font-size text-dark">hello世界</span></p>
+                </div>
+            </div> -->
+            <!-- <div id="back2  "></div> -->
     </div>
     <div class="topLeft" data-toggle="show">
         <table id="tab" class=" border">
@@ -229,8 +233,8 @@
     }
     newtime()
 
-    <!--留言字数的控制-->
-    //        console.log($("[data-text=txt]").text())
+    // <!--留言字数的控制-->
+    //console.log($("[data-text=txt]").text())
     var maxLength=150;
     $("#words").keyup(function(){
     var max=$(this).val().length;
@@ -246,54 +250,49 @@
 </script>
 <!--将留言信息发送给到数据库-->
 <script>
-
 function info(){
     var xhr=new XMLHttpRequest();
     xhr.onreadystatechange=function(){
         if(xhr.readyState==4&&xhr.status==200){
             var result=xhr.responseText;
             console.log(result)
+            history.go(0)
         }
     }
     xhr.open("post","/user/user_info",true)
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     formdata ="words="+words.value;
+    console.log(formdata)
     if(words.value==""){
         alert("留言贴近你我！！！")
     }else{xhr.send(formdata)}
-
 }
 </script>
-<!--从数据库中拿回留言的信息，留言功能的基本实现过程-->
+<!--从数据库中拿回留言的信息，留言功能的基本实现过程--> 
 <script>
-    function backinfo(){
+  window.onload=function(){
     var xhr=new XMLHttpRequest();
     xhr.onreadystatechange=function(){
     if(xhr.readyState==4&&xhr.status==200){
         var result=xhr.responseText;
-//        console.log(result)
         var json=JSON.parse(result)
-        var time=new Date();
         var week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
-        var year=time.getFullYear();
-        var month=time.getMonth()+1;
-        var date=time.getDate();
-        var weeks=time.getDay();
-        var hours=time.getHours();
-        var minutes=time.getMinutes();
-        var seconds=time.getSeconds()
-        timeids=`${year}年${month}月${date}日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${week[weeks]}&nbsp;&nbsp;&nbsp;&nbsp;${hours}时${minutes}分${seconds}秒`
+        var name=["情非得已","爱恨情仇","离人愁","沙漠骆驼","醉红颜","三国杀","笑傲江湖","杯莫停","长相思","世界和平","因爱生恨","疼痛","码农"];
         var html="";
         for(var text of json){
+            var times=text.nowtime;  
+            var n=name[parseInt(Math.random()*(name.length))]; 
+            var imgs=["img/zj01.jpg","img/zj.jpg","img/仗剑.jpg","img/tx_001.png","img/tx_002.png","img/tx_003.png","img/tx_004.png"]
+            var img=imgs[parseInt(Math.random()*(imgs.length))]
+            var timeids=`${text.nowtime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${week[text.week]}`
             html+=`
         <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white">
-            <img src="img/zj01.jpg" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>
-            <span class="text-info pl-lg-2  border_bottoms ml-lg-2">【情非得已】</span><span class="times pl-lg-4">${timeids}</span><br/>
-        <p class="pl-lg-5 pb-lg-2 ml-lg-4">${text.words}
-            <button class="btn btn-outline-info btn-sm">回复</button>
-        </p>
-        </div>
-   `
+            <img src="${img}" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>
+            <span class="text-info pl-lg-2  border_bottoms ml-lg-2">【${n}】</span><span class="times pl-lg-4">${timeids}</span><br/>
+            <p class="pl-lg-5 ml-lg-4 ">${text.words}
+                <button class="btn btn-outline-info btn-sm" onclick="back()">回复</button>
+            </p>
+          </div> `
         }
      var div = document.getElementById("wordsinfo");
         div.innerHTML=html
@@ -302,5 +301,58 @@ function info(){
 xhr.open("get","/user/backinfo",true);
 xhr.send(null)
 }
+//回复用户信息，将信息发送到数据库
+function back(){
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4&&xhr.status==200){
+            var result=xhr.responseText;
+            console.log(result)
+            history.go(0)
+        }
+    }
+    xhr.open("post","/user/ownback",true)
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    formdata ="words="+words.value;
+    console.log(formdata)
+    if(words.value==""){
+        alert("留言贴近你我！！！")
+    }else{xhr.send(formdata)}
+}
+// 拿回将要发送的信息，并展示到前端页面中去；
+(function(){
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+    if(xhr.readyState==4&&xhr.status==200){
+        var result=xhr.responseText;
+        var json=JSON.parse(result)
+        // console.log(json)
+        var html="";
+        for(var text of json){
+            // console.log(text.words  )    
+            html+=
+            `
+            <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white">
+            <img src="${img}" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>
+            <span class="text-info pl-lg-2  border_bottoms ml-lg-2">【${n}】</span><span class="times pl-lg-4">${timeids}</span><br/>
+            <p class="pl-lg-5 ml-lg-4 ">${text.words}
+                <button class="btn btn-outline-info btn-sm" onclick="back()">回复</button>
+            </p>
+          
+            <p class="pb-lg-2">
+                <span class="pl-lg-5 ml-lg-5  text-success h6">【站长回复】</span>
+                <span class=" font-size text-dark">${text.words}</span>
+            </p>
+            </div>`
+        }
+        var div = document.getElementById("wordsinfo");
+        console.log(div)
+        div.innerHTML=html
+    }
+}
+xhr.open("get","/user/ownbackinfo",true);
+xhr.send(null)
+})()
+// 明天看回调地狱
 </script>
 </html>

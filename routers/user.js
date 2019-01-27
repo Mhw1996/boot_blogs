@@ -37,11 +37,15 @@ router.post("/login",(req,res)=>{
 
 //将用户留言信息插入到数据库中！
 	router.post("/user_info",(req,res)=>{
-		var obj=req.body;
-		//console.log(obj)
-		var sql=`INSERT INTO use_info SET ?`
-		pool.query(sql,[obj],(err,result)=>{
-			if(err)throw err;
+		var $words=req.body.words;
+		var $nowtime=new Date();
+		// console.log($nowtime)
+		var $week=$nowtime.getDay();
+		// console.log($week)
+		var sql=`INSERT INTO use_info value(?,?,?,?)`
+		pool.query(sql,[null,$words,$nowtime,$week],(err,result)=>{
+			console.log(result)
+			if(err) throw err;
 			if(result.affectedRows>0){
 				res.send("1")
 			}else{
@@ -56,7 +60,35 @@ router.get("/backinfo",(req,res)=>{
 		if(err)throw err;
 		if(result.length>0){
 			res.send(result)
-		//console.log(result)
+		// console.log(result)
+		}else{
+			res.send("0")
+		}
+	})
+})
+//	回复用户信息！
+router.post("/ownback",(req,res)=>{
+	var $words=req.body.words;
+	// console.log($nowtime)
+	var sql=`INSERT INTO ownback value(?,?)`
+	pool.query(sql,[null,$words],(err,result)=>{
+		console.log(result)
+		if(err) throw err;
+		if(result.affectedRows>0){
+			res.send("1")
+		}else{
+			res.send("0")
+		}
+	})
+})
+//从数据库中拿到将要回复用户的信息！
+router.get("/ownbackinfo",(req,res)=>{
+	var sql=`select * from ownback`;
+	pool.query(sql,[],(err,result)=>{
+		if(err)throw err;
+		if(result.length>0){
+			res.send(result)
+		// console.log(result)
 		}else{
 			res.send("0")
 		}

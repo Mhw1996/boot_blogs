@@ -14,19 +14,19 @@
     <script src="js/vue.js"></script>
     <title>博客注册页</title>
     <style>
-        .success{
-            color:#0aaeed;
-        }
-        .success_border{
-            border:1px solid #0aaeed !important;
-        }
-        .fild{
-            color:#ff0000;
-        }
-        .fild_border{
-            border:1px solid lightcoral !important;
-        }
-    </style>
+    .success{
+        color:#0aaeed;
+    }
+    .success_border{
+        border:1px solid #0aaeed !important;
+    }
+    .fild{
+        color:#ff0000;
+    }
+    .fild_border{
+        border:1px solid lightcoral !important;
+    }
+     </style>
 </head>
 <body>
 <div id="header" class="if_header positionrelative"></div>
@@ -52,16 +52,31 @@
     <input type="text"  placeholder="请输入邮箱验证码"class="form-control bg_img_2 pl-lg-5 pl-sm-5 hover_colo_input" id="vs">
     <div class="mt-lg-3 mb-lg-1 mt-sm-3 mb-sm-1">
         <span class="text-danger" >*</span>
-        <span>{{pawd}}</span>
+        <span :class="upwdStyle">{{pawd}}</span>
     </div>
-    <input type="password" placeholder="请输入密码" class="form-control bg_img_3 pl-lg-5 pl-sm-5 hover_colo_input"id="upwd">
+    <input type="password" 
+    placeholder="请输入密码" :class="upwd_border"
+    class="form-control bg_img_3 pl-lg-5 pl-sm-5 hover_colo_input"
+    id="upwd" 
+    v-model="upw"
+    >
     <div class="mt-lg-3 mb-lg-1 mt-sm-3 mb-sm-1">
         <span class="text-danger">*</span>
-        <span id="title1">{{upwd}}</span>
+        <span id="title1" :class="upwdStyle">{{upwd}}</span>
     </div>
-    <input type="password" placeholder="请确认一下密码" class="form-control bg_img_4 pl-lg-5 pl-sm-5 hover_colo_input">
-    <input type="button"value="验证码正在加载..." class="btn btn-info form-control mt-lg-4 mt-sm-3 hover_colo_input">
-    <input type="button" value="注册" class="btn btn-danger   form-control mt-lg-4 mt-sm-3 mb-sm-4 hover_colo_input" onclick="sigin()">
+    <input type="password" 
+    placeholder="请确认一下密码"
+    class="form-control bg_img_4 pl-lg-5 pl-sm-5 hover_colo_input"
+    v-model="newupw" :class="upwd_border"
+    @blur="myupwd()">
+    <input type="button" 
+    value="验证码正在加载..." 
+    class="btn btn-info form-control mt-lg-4 mt-sm-3 hover_colo_input">
+    <input type="button" 
+    value="注册" 
+    class="btn btn-danger   form-control mt-lg-4 mt-sm-3 mb-sm-4 hover_colo_input"
+    @blur="gosigin()"
+     onclick="sigin()">
     <div class=" ">已经拥有账户？ <a href="login.html">登录</a></div>
     <div class="mt-lg-3 ">快速注册</div>
     <div class="text-center">
@@ -91,8 +106,8 @@ function sigin(){
         if(xhr.readyState==4&&xhr.status==200){
             var result=xhr.responseText;
             if(result=="1"){
-                confirm("恭喜成为小马哥的粉丝,将跳转到登录页面！")
-                location.url("http://127.0.0.1:3000/login.html")
+                alert("恭喜成为小马哥的粉丝,将跳转到登录页面！")
+                location.href="http://127.0.0.1:3000/login.html";
             }else{
                 alert("为了更贴近小马哥，请正确输入您的信息")
             }
@@ -113,20 +128,48 @@ function sigin(){
             upwd:"确认密码",
             spanStyle:"",
             spanStyle_border:"",
-            input_border:""
+            input_border:"",
+            upw:"",
+            newupw:"",
+            bool:true,
+            ms:true,
+            upwdStyle:"",
+            upwd_border:""
         },
         methods:{
             myBlur(){
-            if(/^([a-z0-9]+)@([a-z0-9]+)\.([a-z]+){2,6}$/.test(this.Temail)){
+            if((/^([a-z0-9]+)@([a-z0-9]+)\.([a-z]+){2,6}$/.test(this.Temail))&&(this.Temail)!=""){
                 this.text_email="邮箱格式输入正确";
                 this.spanStyle="success";
                 this.spanStyle_border="success_border";
+                return bool=true
             }else{
                 this.text_email="邮箱格式必须以字母或数字开头包含'@'和'.'符号";
                 this.spanStyle="fild";
-                this.spanStyle_border="fild_border"
+                this.spanStyle_border="fild_border";
+                return bool=false
             }
-        }
+            },
+            myupwd(){
+            if((this.upw==this.newupw)&&(this.newupw!="")&&(this.upw!="")){
+                this.upwd="密码输入格式一致正确！！！";
+                this.upwdStyle="success";
+                this.upwd_border="success_border";
+                // alert("一致")
+                    return ms=true;
+            }else{
+                this.upw="密码输入不一致,请重新输入！！！";
+                this.upwdStyle="fild";
+                this.upwd_border="fild_border";
+                // alert("不一致")
+                    return ms=false;
+            }
+            }, 
+            gosigin(){
+                if(bool==true&&ms==true){
+                    
+                }
+            }         
         }
     })
 </script>

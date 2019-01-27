@@ -40,3 +40,6 @@
 .border_bottoms{
     border-bottom: #f804c4 2px dashed;
 }
+.font-size{
+    font-size: 0.8rem !important;
+}

@@ -9,6 +9,8 @@ CREATE TABLE blog_use(
 	vs	varchar(6)
 );
 CREATE TABLE use_info(
-	lid int(11) AUTO_INCREMENT PRIMARY KEY,
-	words varchar(150)
+	lid	int(11) AUTO_INCREMENT PRIMARY KEY,
+	words	varchar(150),
+	nowtime datetime,
+	week	varchar(10)
 );
