@@ -3,6 +3,8 @@
 const express=require("express");
 //引入用户路由器；
 const userRouter=require("./routers/user.js");
+//引入root路由器
+const rootRouter=require("./routers/root.js")
 //引入body-parser;
 const bodyParser=require("body-parser");
 var app=express();
@@ -18,3 +20,5 @@ app.use(bodyParser.urlencoded({
 //把用户路由器挂载到/user下；
 //访问形式 /user/reginter
 app.use('/user',userRouter);
+//挂载root
+app.use('/root',rootRouter)

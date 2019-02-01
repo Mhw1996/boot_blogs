@@ -48,9 +48,9 @@
         </div>
     </div>
     <div class="position-relative">
-    <div   id="wordsinfo" class="words">
-                <!-- <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white">
-                    <img src="img/zj01.jpg" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>
+    <div class="words">
+                 <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white" id="wordsinfo">
+                  <!--  <img src="img/zj01.jpg" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>
                     <span class="text-info pl-lg-2  border_bottoms ml-lg-2">情非得已</span><span class="times pl-lg-4"></span><br/>
                 <p class="pl-lg-5  ml-lg-4">大神您好，我下载安装了pdfexpert，为啥老说我文件损坏应当移除到废纸娄呢？
                     <button class="btn btn-outline-info btn-sm">回复</button>
@@ -59,8 +59,12 @@
                 <p class="pb-lg-2"><span class="pl-lg-5 ml-lg-5  text-success h6">【站长回复】</span><span class=" font-size text-dark">hello世界</span></p>
                 </div>
             </div> -->
-            <!-- <div id="back2  "></div> -->
+            <!-- <div id="back2  ">-->
+
+            </div> 
+            
     </div>
+    <div id="wordsinfo2" class="words position-relative posi"></div>
     <div class="topLeft" data-toggle="show">
         <table id="tab" class=" border">
             <tr class="">
@@ -282,16 +286,17 @@ function info(){
         for(var text of json){
             var times=text.nowtime;  
             var n=name[parseInt(Math.random()*(name.length))]; 
-            var imgs=["img/zj01.jpg","img/zj.jpg","img/仗剑.jpg","img/tx_001.png","img/tx_002.png","img/tx_003.png","img/tx_004.png"]
+            var imgs=["img/zj01.jpg","img/zj.jpg","img/仗剑.jpg","img/lyQQ1.png","img/lyQQ2.png","img/lyQQ3.png","img/lyQQ4.png","img/lyQQ5.png","img/lyQQ6.png","img/lyQQ7.png"]
             var img=imgs[parseInt(Math.random()*(imgs.length))]
             var timeids=`${text.nowtime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${week[text.week]}`
             html+=`
-        <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white">
+        <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow1 bg-white position-relative">
             <img src="${img}" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>
             <span class="text-info pl-lg-2  border_bottoms ml-lg-2">【${n}】</span><span class="times pl-lg-4">${timeids}</span><br/>
             <p class="pl-lg-5 ml-lg-4 ">${text.words}
                 <button class="btn btn-outline-info btn-sm" onclick="back()">回复</button>
             </p>
+            
           </div> `
         }
      var div = document.getElementById("wordsinfo");
@@ -307,7 +312,7 @@ function back(){
     xhr.onreadystatechange=function(){
         if(xhr.readyState==4&&xhr.status==200){
             var result=xhr.responseText;
-            console.log(result)
+            // console.log(result)  
             history.go(0)
         }
     }
@@ -332,20 +337,14 @@ function back(){
             // console.log(text.words  )    
             html+=
             `
-            <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow bg-white">
-            <img src="${img}" alt="" class="w-h border-info border img-fluid rounded-circle ml-lg-4 mt-lg-2"/>
-            <span class="text-info pl-lg-2  border_bottoms ml-lg-2">【${n}】</span><span class="times pl-lg-4">${timeids}</span><br/>
-            <p class="pl-lg-5 ml-lg-4 ">${text.words}
-                <button class="btn btn-outline-info btn-sm" onclick="back()">回复</button>
-            </p>
-          
+            <div class="col-lg-11 border_my pr-0 pl-0 mt-lg-4 ml-lg-5 box-shadow2 bg-white posit_">     
             <p class="pb-lg-2">
                 <span class="pl-lg-5 ml-lg-5  text-success h6">【站长回复】</span>
                 <span class=" font-size text-dark">${text.words}</span>
             </p>
             </div>`
         }
-        var div = document.getElementById("wordsinfo");
+        var div = document.getElementById("wordsinfo2");
         console.log(div)
         div.innerHTML=html
     }

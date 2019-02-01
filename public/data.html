@@ -9,24 +9,87 @@
     <script src="Boot_js/popper.min.js"></script>
     <script src="Boot_js/bootstrap.min.js"></script>
     <script src="js/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="css/data.css">
     <title>博客日记</title>
-    <style>
-        .col>div{
-            border: 1px solid rebeccapurple
-        }
-    </style>
 </head>
 <body>
 <div id="header1" class="if_header positionrelative"></div>
-  <div class="container">
-    <div class="col">
-        <div class="row-lg-12">
-       
+<div class="container  mt-lg-3 bg_words" >
+<div class="row">
+<div class="col-lg-12" >
+    <table></table>
+<ul class="nav justify-content-round bg-white mt-lg-3  ml-lg-2 mr-lg-2 box-shadow">
+    <li class="nav-item "><a href="#" class="nav-link"><img src="img/dw.png"title="定位"  /> </a></li>
+    <li class="nav-item"><a href="index.html" class="nav-link text-dark pt-lg-3 h6 font-weight-bold">首页 </a></li>
+    <li class="nav-item"><a href="data.html" class="nav-link text-dark pt-lg-3 h6 font-weight-bold">博客日记</a></li>
+</ul>
+</div>
+</div>
+    <div id="dataword">
+     <!-- <div class="row mt-lg-4" > -->
+      <!--  <div class="col-lg-1  ml-lg-5 ">
+            <div class="img-bg ">
+                <img src="img/cd-icon-movie.svg" alt="" class="imgxj">
+            </div>
         </div>
+        <div class="col-lg-6 imgxj ">
+            <div class="bg-white ">
+            <div class="type"></div>
+             <h5 class="pl-lg-3 pr-lg-3">当人们问我去哪里的时候，我忍着恶心，告诉他们，远方</h5>
+             <p class="pl-lg-4 pr-lg-4 text-muted h6">放寒假了 这次学校放了很久 可以好好完善博客功能 还要好好复习4月份的公招考试</p>
+             <p class="text-right p-lg-2 text-info">2019-01-15 12:27:50</p>
+            </div>
+        </div>--> 
+    <!-- </div>  -->
     </div>
+</div> 
   </div>
+  <div id="data_footer"></div>
+  <script>
+window.onload=function(){
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+    if(xhr.readyState==4&&xhr.status==200){
+        var result=xhr.responseText;
+        var json=JSON.parse(result)
+        var week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+        console.log(json)
+        var html="";
+        for(var text of json){
+            console.log(text)    
+            /*content:"fff"dalid:2 img:"nowtime:"2019-01-28T14:13:16.000Z"title:"f"week:1*/
+            // console.log(text.nowtime.getFullYear())
+    var imgs=["img/face/01.gif","img/face/02.gif","img/face/03.gif","img/face/04.gif","img/face/05.gif","img/face/06.gif","img/face/07.gif","img/face/08.gif","img/face/09.gif","img/face/10.gif","img/face/11.gif","img/face/12.gif","img/face/13.gif","img/face/14.gif","img/face/15.gif","img/face/16.gif","img/face/17.gif","img/face/18.gif","img/face/19.gif","img/face/20.gif","img/face/21.gif","img/face/22.gif","img/face/23.gif","img/face/24.gif","img/face/25.gif","img/face/26.gif","img/face/27.gif","img/face/28.gif","img/face/29.gif","img/face/30.gif"]
+    var img=imgs[parseInt(Math.random()*(imgs.length))]
+html+=
+`<div class="row mt-lg-4" > 
+<div class="col-lg-1  ml-lg-5">
+<div class="img-bg  text-rigth">
+    <img src="${img}" alt="" class="imgxj">
+</div>
+</div>
+    <div class="col-lg-6 imgxj ">
+    <div class="bg-white ">
+    <div class="type"></div>
+    <h5 class="pl-lg-3 pr-lg-3">${text.title}</h5>
+    <p class="pl-lg-4 pr-lg-4 text-muted h6">${text.content}</p>
+<p class="text-right p-lg-2 text-info">${text.year}年${text.month}月${text.day}日${text.Hours}时${text.minute}分${text.second}秒&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${week[text.week]}</p>
+    </div>
+    </div></div>
+    `
+        }
+        var div = document.querySelector("#dataword");
+        console.log(div)
+        div.innerHTML=html
+    }
+}
+xhr.open("get","/root/Rootback",true);
+xhr.send(null)
+}
+  </script>
 </body>
 <script>
     $("#header1").load("header.html");
+    $("#data_footer").load("footer.html");
 </script>
 </html>
