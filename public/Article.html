@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=" Boot_css/bootstrap.css">
+    <script src="Boot_js/jquery.min.js"></script>
+    <script src="Boot_js/popper.min.js"></script>
+    <script src="Boot_js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <!-- 插件引入部分 -->
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="css/date.css">
+    <!-- 插件引入部分 -->
+    <style>
+    .bg_words{
+      background:rgb(228, 228, 228);
+      width: 100%;
+      box-shadow: 0 0 10px 4px #adadad;
+    }
+    .font{
+      font-family: 'inherit' !important;
+      color: #337ab7 !important;
+    }
+		.font-size{
+			font-size: 1rem !important;
+		}
+    #dates{
+      position: relative;
+      z-index: 100;
+    }
+		.fontinfo{
+			font-family: "幼圆" !important;
+		}
+    </style>
+  <title>文章</title>
+</head>
+<body>
+<div id="header1" class="if_header positionrelative"></div>
+<div class="container bg_words mt-lg-3">
+  <div class="row">
+    <div class="col-lg-12 p-0" >
+      <table></table>
+      <ul class="nav justify-content-round bg-white mt-lg-3  ml-lg-2 mr-lg-2 box-shadow">
+          <li class="nav-item "><a href="#" class="nav-link"><img src="img/dw.png"title="定位"  /> </a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link text-dark pt-lg-3 h6 font-weight-bold">首页 </a></li>
+          <li class="nav-item"><a href="web.html" class="nav-link text-dark pt-lg-3 h6 font-weight-bold">实战心得</a></li>
+          <li class="nav-item"><a href="JavaScript:;" class="nav-link text-dark pt-lg-3 h6 font-weight-bold">文章专栏页</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 文章内容部分 -->
+  <div class="row   mt-lg-3">
+    <div class="col-lg-8 bg-white ml-lg-2" id="article">
+      <!-- <div class="h4 pt-lg-3 pb-lg-2 font text-center">数据库中md5()函数的使用</div>
+      <p class="mt-lg-4">
+        <img src="img/artical.png" class=" img-fluid  mr-lg-3 mb-lg-2" alt="">
+        <span class="border  p-lg-1 h6">发表于：2019-02-13 13:31:01 星期三</span>
+        <span class="border p-lg-1 h6"><img src="img/ear1.png" alt="">
+          &nbsp;
+        <span class="text-danger">2500</span> 人已围观</span>
+        <span class=" border p-lg-1 h6  ">分类:【js】</span>
+      </p>
+			<div>
+				<p class="border bg-light p-lg-2 text-muted"><span class="h6 font-weight-bold p-lg-3 text-dark">一、前言:</span>网站模板我更新速度是很慢的，数了一下，大概12个模板，不多，但是每一套个人博客网站模板都是我精心设计的，期间认识了很多做优化的朋友还有客户，根据他们的要求还有建议，我又做了很多调整，无论是静态模板的编写还是后台调用方式上，都有很大的进步，我这一年的时间，比我7年加起来的收获还要多。</p>
+				<div class="text-center mb-lg-3"> <img src="img/x_001.jpg" alt=""></div>
+				<p class="border bg-light p-lg-2 text-muted"><span class="h6 font-weight-bold p-lg-3 text-dark">二、主题内容:</span>网站模板我更新速度是很慢的，数了一下，大概12个模板，不多，但是每一套个人博客网站模板都是我精心设计的，期间认识了很多做优化的朋友还有客户，根据他们的要求还有建议，我又做了很多调整，无论是静态模板的编写还是后台调用方式上，都有很大的进步，我这一年的时间，比我7年加起来的收获还要多。</p>
+				<div class="text-center mb-lg-3"> <img src="img/x_001.jpg" alt=""></div>
+				<p class="border bg-light p-lg-2 text-muted"><span class="h6 font-weight-bold p-lg-3 text-dark">二、总结一下:</span>网站模板我更新速度是很慢的，数了一下，大概12个模板，不多，但是每一套个人博客网站模板都是我精心设计的，期间认识了很多做优化的朋友还有客户，根据他们的要求还有建议，我又做了很多调整，无论是静态模板的编写还是后台调用方式上，都有很大的进步，我这一年的时间，比我7年加起来的收获还要多。</p>
+				<div class="text-center mb-lg-3"> <img src="img/x_001.jpg" alt=""></div>
+				<p class="border bg-light p-lg-2 text-muted"><span class="h6 font-weight-bold p-lg-3 text-dark">版权声明:</span>灰常感谢您对小马哥个人博客网站平台的认可，以及对我们原创作品和文章的好评，并且非常欢迎各位同学分享到个人站长或者朋友圈，但是呢，转载请说明文章出处“来源小马哥个人博客”谢谢！！！。<br>
+				https://www.localhost.com</p>
+				<p class="text-center border-muted border-top mt-lg-4">
+					<img src="img/赏.png" alt="" class="mt-lg-4">
+					<p class="text-center">觉得小编很帅的话，打赏一下，反正我不介意！</p>
+				</p>
+			</div> -->
+    </div>
+    <!-- 文章侧边栏 -->
+    <div class="col-lg-3">
+      <!-- 日历的插件开始 -->
+      <div class="layui-container ml-lg-4 mb-lg-3 p-0" id="dates">  
+        <div class="layui-row">
+          <div class="layui-col-md12">
+          <div class="layui-inline p-0 m-0" id="test-n2" ></div>
+          </div>
+        </div>
+      </div>
+      <!-- 日历的插件结束 -->
+      <!-- 建站信息开始-->
+      <div class="bg-white ml-lg-4 mb-lg-3 layui-container p-0">
+				<p class="h5 fontinfo text-center pt-lg-2 pb-lg-3 border-bottom border-muted">建站信息</p>
+				<p class="h6 p-lg-2"><span class=" text-success"> 建站时间:</span><span class="p-lg-2 ">2018/10/08</span></p>
+				<p class="h6 p-lg-2"><span class=" text-success"> 网站程序:</span><span class="p-lg-2 ">纯前端Js</span></p>
+				<p class="h6 p-lg-2"><span class=" text-success"> 网站流程:</span><span class="p-lg-2 ">新手上路第一站</span></p>
+				<p class="h6 p-lg-2"><span class=" text-success"> 网站影响:</span><span class="p-lg-2 ">自我提上并分享文章</span></p>
+				<p class="h6 p-lg-2"><span class=" text-success"> 网站文章:</span><span class="p-lg-2 ">未知，有待开发</span></p>
+				<p class="h6 p-lg-2"><span class=" text-success"> 微信公众号:</span><span class="p-lg-2 ">扫二维码，关注小编</span></p>
+				<p class="text-center"><img src="img/QQ_3.png" alt="" class="w-50 h-50 border" title="QQ扫码关注"></p>
+				<p class="text-center"><img src="img/weixin.png" alt="" class="w-50 h-50 border mb-lg-3" title="微信扫码关注"></p>
+			</div>
+			<!-- 建站信息结束 -->
+			<!-- 打赏本站开始 -->
+			<div class="bg-white ml-lg-4 mb-lg-3 layui-container p-0">
+				<p class="h5 fontinfo text-center pt-lg-2 pb-lg-3 border-bottom border-muted">打赏本站</p>
+				<p class="h6 p-lg-2 font-size"> 觉得本站很棒，不介意打赏一下吧！</p>
+				<p class="h6 p-lg-2"><span class="font-weight-bold h6"> 微信扫码:</span><span class="p-lg-2 ">你说多少就多少❥(^_-)！</span></p>
+				<p class="text-center"><img src="img/wxzf2.png" alt="" class="w-50 h-50 border-info mb-lg-4" title="微信扫码支付"></p>
+			</div>
+			<!-- 打赏本站结束 -->
+    </div>
+  </div>
+  
+</div>
+<script>
+	window.onload=function(){
+		var search=location.search;
+		if(search!==""){
+		 var cid=search.split("=")[1]
+		}
+	var xhr=new XMLHttpRequest();
+	xhr.onreadystatechange=function(){
+	if(xhr.readyState==4&&xhr.status==200){
+			var result=xhr.responseText;
+			var json=JSON.parse(result)
+			var week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+		var html=""; 
+		for(var item of json){
+			console.log(item)
+			html+=`<div class="h4 pt-lg-3 pb-lg-2 font text-center">${item.title}</div>
+      <p class="mt-lg-4">
+        <img src="img/artical.png" class=" img-fluid  mr-lg-3 mb-lg-2" alt="">
+        <span class="border  p-lg-1 h6">发表于：${item.year}年${item.month}月${item.day}日 ${item.Hours}:${item.minute}:${item.second} ${week[item.week]}</span>
+        <span class="border p-lg-1 h6"><img src="img/ear1.png" alt="">
+          &nbsp;
+        <span class="text-danger">${item.num}</span> 人已围观</span>
+        <span class=" border p-lg-1 h6  ">分类:【${item.type}】</span>
+      </p>
+			<div>
+				<p class="border bg-light p-lg-2 text-muted"><span class="h6 font-weight-bold p-lg-3 text-dark">一、前言:<br></span>${item.header}</p>
+				<div class="text-center mb-lg-3"> <img src="${item.c_img}" alt="" class="w-75 h-25"></div>
+				<p class="border bg-light p-lg-2 text-muted"><span class="h6 font-weight-bold p-lg-3 text-dark">二、主题内容:<br></span>${item.body}</p>
+				<div class="text-center mb-lg-3"> <img src="${item.c_img1}" alt="" class="w-75 h-50"></div>
+				<p class="border bg-light p-lg-2 text-muted"><span class="h6 font-weight-bold p-lg-3 text-dark">三、总结一下:<br></span>${item.footer}</p>
+				<div class="text-center mb-lg-3"> <img src="${item.c_img2}" alt="" class="w-75 h-50"></div>
+				<p class="border bg-light p-lg-2 text-muted"><span class="h6 font-weight-bold p-lg-3 text-dark">版权声明:</span>灰常感谢您对小马哥个人博客网站平台的认可，以及对我们原创作品和文章的好评，并且非常欢迎各位同学分享到个人站长或者朋友圈，但是呢，转载请说明文章出处“来源小马哥个人博客”谢谢！！！。<br>
+				https://www.localhost.com</p>
+				<p class="text-center border-muted border-top mt-lg-4">
+					<img src="img/赏.png" alt="" class="mt-lg-4">
+					<p class="text-center">觉得小编很帅的话，打赏一下，反正我不介意！</p>
+				</p>
+			</div> `
+		}
+		var article=document.getElementById("article")
+		article.innerHTML=html
+	}
+}
+var url=`http://127.0.0.1:3000/root/get_article?cid=${cid}`
+xhr.open("get",url,true);
+xhr.send(null)
+}
+</script>
+<script>
+   $("#header1").load("header.html");
+</script>
+<!-- 日历插件js部分 -->
+<script src="layui/layui.js"></script>
+<script>
+layui.use(['layer', 'form','jquery','laydate'], function() {
+	var layer = layui.layer,
+		$ = layui.jquery,
+		laydate = layui.laydate,
+		form = layui.form;	
+		//定义json	
+		var  data={};
+		var  dataArr = [];
+		var new_date = new Date();
+		loding_date(new_date ,data);
+		//日历插件调用方法  
+		function loding_date(date_value,data){
+		
+		  laydate.render({
+		    elem: '#test-n2'
+		    ,type: 'date'
+		    ,theme: 'grid'
+		    ,max: '2099-06-16 23:59:59'
+		    ,position: 'static'
+		    ,range: false
+		    ,value:date_value
+		    ,isInitValue: false
+		    ,calendar: true
+		    ,btns:false
+		    ,ready: function(value){
+    			//console.log(value);
+    			hide_mr(value);
+  			}
+		    ,done: function(value, date, endDate){
+		      //调用弹出层方法
+		      date_chose(value,data);
+		    }
+		    ,change:function(value,date){
+		    		hide_mr(date);
+		    }
+		   , mark:data//重要json！
+		   
+		  });
+		}
+
+	
+		function hide_mr(value){
+				var mm = value.year+'-'+value.month+'-'+value.date;
+    			
+    		$('.laydate-theme-grid table tbody').find('[lay-ymd="'+mm+'"]').removeClass('layui-this');
+    		 //console.log(value)
+		}
+  
+  
+	  //获取隐藏的弹出层内容
+	  var date_choebox = $('.date_box').html();
+  
+	  //定义弹出层方法
+	  function date_chose(obj_date,data){
+	      var index = layer.open({
+	      type: 1,
+	      skin: 'layui-layer-rim', //加上边框
+	      title:'添加记录',
+	      area: ['400px', 'auto'], //宽高
+	      btn:['确定','撤销','取消'],
+	      content: '<div class="text_box">'+
+	      		'<form class="layui-form" action="">'+
+	      		 '<div class="layui-form-item layui-form-text">'+
+						     ' <textarea id="text_book" placeholder="请输入内容"  class="layui-textarea"></textarea>'+
+						  '</div>'+
+	      		'</form>'+
+	      		'</div>'
+	      ,success:function(){
+	      		$('#text_book').val(data[obj_date])
+	      	}
+	      ,yes:function (){
+	        //调用添加/编辑标注方法
+	        if($('#text_book').val()!=''){
+	        	 chose_moban(obj_date,data);
+	        	layer.close(index); 
+	        }else{
+	        	 layer.msg('不能为空', {icon: 2});
+	        }
+	       
+	      },btn2:function (){
+	        chexiao(obj_date,data);
+	      }
+	    });
+	  }
+		//定义添加/编辑标注方法
+		function chose_moban(obj_date,markJson){
+		  //获取弹出层val
+		  var chose_moban_val = $('#text_book').val();
+		  
+		  $('#test-n2').html('');//重要！由于插件是嵌套指定容器，再次调用前需要清空原日历控件
+		    //添加属性 
+		    markJson[obj_date] = chose_moban_val;
+		   
+		    data = {
+		    	time:obj_date,
+		    	value:chose_moban_val
+		    }
+		   	
+		   
+		   //添加修改数值
+			 for (var i in dataArr) {
+	        if(dataArr[i].time==obj_date){
+	        	dataArr[i].value = chose_moban_val;
+	        	dataArr.splice(i, 1);
+	        }
+	     }
+			 dataArr.push(data);
+			 
+			 //按时间正序排序
+			 
+				dataArr.sort(function(a,b){
+					return Date.parse(a.time) - Date.parse(b.time);//时间正序
+				});
+		 		console.log(JSON.stringify(dataArr))
+		   
+		    //再次调用日历控件，
+		    loding_date(obj_date,markJson);//重要！，再标注一个日期后会刷新当前日期变为初始值，所以必须调用当前选定日期。
+		  	
+		}
+		//撤销选择
+		function chexiao(obj_date,markJson){
+		    //删除指定日期标注
+		    delete markJson[obj_date]; 
+		    //console.log(JSON.stringify(markJson));
+			   for (var i in dataArr) {
+		        if(dataArr[i].time==obj_date){
+		        	dataArr.splice(i, 1);
+		        }
+		     }
+		    console.log(JSON.stringify(dataArr))
+		    //原理同添加一致
+		    $('#test-n2').html('');
+		    loding_date(obj_date,markJson);
+		}		
+	});</script> 
+<!-- 日历插件js部分 -->
+</body>
+</html>

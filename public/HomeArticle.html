@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=" Boot_css/bootstrap.css">
+    <script src="Boot_js/jquery.min.js"></script>
+    <script src="Boot_js/popper.min.js"></script>
+    <script src="Boot_js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+  <title>博客Article后台</title>
+</head>
+<body>
+<div class="container" id="app">
+  <div class="row">
+    <div class="col-8 m-auto">
+    <div class="form-group mt-lg-5">
+    <input type="text" placeholder="标题" class="form-control" id="title"><br>
+    <textarea name=""cols="30" rows="10" placeholder="头部" class="form-control " id="header"></textarea><br> 
+    <input type="text" placeholder="图片" class="form-control" id="c_img"><br>
+    <textarea name=""cols="30" rows="10" placeholder="主题内容" class="form-control " id="body"></textarea><br> 
+    <input type="text" placeholder="图片1" class="form-control" id="c_img1"><br>
+    <textarea name=""cols="30" rows="10" placeholder="结尾部分" class="form-control " id="footer"></textarea><br>  
+    <input type="text" placeholder="图片2" class="form-control" id="c_img2"><br>
+    <input type="text" placeholder="文章类型" class="form-control" id="type"><br>
+    <button class="btn btn-danger form-control " onclick="artical()">提交</button>
+    </div>
+  </div>
+  </div>
+</div>
+<script>
+function artical(){
+var xhr=new XMLHttpRequest();
+xhr.onreadystatechange=function(){
+  console.log(1111)
+    if(xhr.readyState==4&&xhr.status==200){
+        var result=xhr.responseText;
+        console.log(222)
+        console.log(result)
+    }
+}
+xhr.open("post","/root/article",true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+console.log(3333)
+formdata ="title="+title.value+"&header="+header.value+"&c_img="+c_img.value+"&body="+body.value+"&c_img1="+c_img1.value+"&footer="+footer.value+"&c_img2="+c_img2.value+"&type="+type.value;
+xhr.send(formdata);
+console.log(formdata)
+}
+</script>
+</body>
+</html>
